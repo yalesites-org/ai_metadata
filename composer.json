@@ -1,0 +1,5 @@
+{
+    "name": "yalesites-org/ai_metadata",
+    "description": "Drupal module that provides specific metatags for use with AI ingestion.",
+    "type": "drupal-module"
+  }
