@@ -21,12 +21,19 @@ The AI Metadata module, developed by Yale ITS, is designed to add meta tags that
 To read these values, you can use the `Drupal\metatag\MetatagManager` class.
 
 ```php
+use Drupal\Core\Utility\Token;
 use Drupal\metatag\MetatagManager;
 
 $tags = $this->metatagManager->tagsFromEntity($entity);
-$aiDescription = $tags['ai_description'] ?? NULL;
-$aiDisableIndexing = isset($tags['ai_disable_indexing']) ? TRUE : FALSE;
 
+// AI description - raw text.
+$aiDescription = $tags['ai_description'] ?? "";
+
+// AI description with replace tokens.
+$aiDescription = isset($tags['ai_description']) ? $this->token->replace($tags['ai_description'], ['node' => $entity]) : "";
+
+// Checking if entity should be removed from AI feed.
+$aiDisableIndexing = isset($tags['ai_disable_indexing']) ? TRUE : FALSE;
 ```
 
 ## Requirements
