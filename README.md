@@ -29,7 +29,7 @@ $aiTags = $this->aiMetadataManager->getAiMetadata($entity);
 $aiDescription = $aiTags['ai_description'];
 
 // Checking if entity should be removed from AI feed.
-$aiDisableIndexing = isset($aiTags['ai_disable_indexing']) ? TRUE : FALSE;
+$aiDisableIndexing = $aiTags['ai_disable_indexing'];
 ```
 
 ## Requirements
