@@ -3,7 +3,6 @@
 namespace Drupal\ai_metadata;
 
 use Drupal\Core\Entity\ContentEntityInterface;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Utility\Token;
 use Drupal\metatag\MetatagManager;
 
@@ -11,13 +10,6 @@ use Drupal\metatag\MetatagManager;
  * Service for managing the AI Metadata module.
  */
 class AiMetadataManager {
-
-  /**
-   * The entity type manager service.
-   *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
-   */
-  protected $entityTypeManager;
 
   /**
    * The token class.
@@ -36,19 +28,15 @@ class AiMetadataManager {
   /**
    * Constructs a new Sources object.
    *
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityTypeManager
-   *   The entity type manager service.
    * @param \Drupal\metatag\MetatagManager $metatag_manager
    *   The metatag manager.
    * @param \Drupal\Core\Utility\Token $token
    *   The token class.
    */
   public function __construct(
-    EntityTypeManagerInterface $entityTypeManager,
     MetatagManager $metatag_manager,
     Token $token,
   ) {
-    $this->entityTypeManager = $entityTypeManager;
     $this->metatagManager = $metatag_manager;
     $this->token = $token;
   }

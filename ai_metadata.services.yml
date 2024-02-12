@@ -1,4 +1,4 @@
 services:
   ai_metadata.manager:
     class: Drupal\ai_metadata\AiMetadataManager
-    arguments: ['@entity_type.manager', '@metatag.manager', '@token']
+    arguments: ['@metatag.manager', '@token']
