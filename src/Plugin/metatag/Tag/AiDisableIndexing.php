@@ -29,10 +29,10 @@ class AiDisableIndexing extends MetaNameBase {
       '#type' => 'checkbox',
       '#title' => $this->label(),
       '#description' => $this->description(),
-      '#default_value' => ($this->value === 'ai_disable_index') ?: '',
+      '#default_value' => ($this->value === 'disabled') ?: '',
       '#required' => $element['#required'] ?? FALSE,
       '#element_validate' => [[get_class($this), 'validateTag']],
-      '#return_value' => 'ai_disable_index',
+      '#return_value' => 'disabled',
     ];
 
     return $form;
@@ -49,14 +49,14 @@ class AiDisableIndexing extends MetaNameBase {
    * {@inheritdoc}
    */
   public function getTestOutputExistsXpath(): array {
-    return ["//" . $this->htmlTag . "[@" . $this->htmlNameAttribute . "='{$this->name}' and @content='ai_disable_index']"];
+    return ["//" . $this->htmlTag . "[@" . $this->htmlNameAttribute . "='{$this->name}' and @content='disabled']"];
   }
 
   /**
    * {@inheritdoc}
    */
   public function getTestOutputValuesXpath(array $values): array {
-    return ["//" . $this->htmlTag . "[@" . $this->htmlNameAttribute . "='{$this->name}' and @content='ai_disable_index']"];
+    return ["//" . $this->htmlTag . "[@" . $this->htmlNameAttribute . "='{$this->name}' and @content='disabled']"];
   }
 
 }
