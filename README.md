@@ -13,8 +13,8 @@ The AI Metadata module, developed by Yale ITS, is designed to add meta tags that
 
 | Field               | Type    | Description                                        |
 |---------------------|---------|----------------------------------------------------|
-| ai_description      | String  | Text to be used for AI ingestion              |
-| ai_disable_indexing | String  | If set, entity should be excluded from the AI feed |
+| ai_description      | String  | Text to be used for AI ingestion                   |
+| ai_disable_indexing | Bool    | If set, entity should be excluded from the AI feed |
 
 ## Reading metatag values
 
@@ -29,7 +29,7 @@ $aiTags = $this->aiMetadataManager->getAiMetadata($entity);
 $aiDescription = $aiTags['ai_description'];
 
 // Checking if entity should be removed from AI feed.
-$aiDisableIndexing = isset($aiTags['ai_disable_indexing']) ? TRUE : FALSE;
+$aiDisableIndexing = $aiTags['ai_disable_indexing'];
 ```
 
 ## Requirements
