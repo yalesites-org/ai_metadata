@@ -53,10 +53,12 @@ class AiMetadataManager {
   public function getAiMetadata(ContentEntityInterface $entity) {
     $tags = $this->metatagManager->tagsFromEntity($entity);
     $aiDesc = isset($tags['ai_description']) ? $this->token->replace($tags['ai_description'], [$entity->getEntityTypeId() => $entity]) : "";
+    $aiTags = isset($tags['ai_tags']) ? strip_tags($this->token->replace($tags['ai_tags'], [$entity->getEntityTypeId() => $entity])) : "";
     $aiDisableIndex = isset($tags['ai_disable_indexing']) ? TRUE : FALSE;
 
     $metaData = [
       'ai_description' => $aiDesc,
+      'ai_tags' => $aiTags,
       'ai_disable_index' => $aiDisableIndex,
     ];
 
